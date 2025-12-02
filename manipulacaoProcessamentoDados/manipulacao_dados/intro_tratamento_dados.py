@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('C:/Users/Bruno/PycharmProjects/PythonProject/tratamentoDados/clientes.csv')
+df = pd.read_csv('C:/Users/Bruno/PycharmProjects/PythonProject/manipulacaoProcessamentoDados/clientes.csv')
 
 #Verifica os primeiro registros do DataFrame
 print(df.head().to_string())

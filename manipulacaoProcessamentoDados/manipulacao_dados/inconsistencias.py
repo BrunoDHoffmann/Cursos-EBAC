@@ -4,7 +4,7 @@ import numpy as np
 pd.set_option('display.width', None)
 pd.set_option('display.max_colwidth', None)
 
-df = pd.read_csv('C:/Users/Bruno/PycharmProjects/PythonProject/tratamentoDados/clientes_remove_outliers.csv')
+df = pd.read_csv('C:/Users/Bruno/PycharmProjects/PythonProject/manipulacaoProcessamentoDados/clientes_remove_outliers.csv')
 
 print(df.head())
 print(df.head())
@@ -52,6 +52,6 @@ df['endereco'] = df['endereco_curto']
 df['estado'] = df['estado_sigla']
 
 df_salvar = df[['nome', 'cpf', 'idade', 'data', 'endereco', 'bairro', 'estado']]
-df_salvar.to_csv('C:/Users/Bruno/PycharmProjects/PythonProject/tratamentoDados/clientes_tratados.csv', index=False)
+df_salvar.to_csv('C:/Users/Bruno/PycharmProjects/PythonProject/manipulacaoProcessamentoDados/clientes_tratados.csv', index=False)
 
-print(f'Novo DataFrame: \n {pd.read_csv('C:/Users/Bruno/PycharmProjects/PythonProject/tratamentoDados/clientes_tratados.csv')}')
+print(f'Novo DataFrame: \n {pd.read_csv('C:/Users/Bruno/PycharmProjects/PythonProject/manipulacaoProcessamentoDados/clientes_tratados.csv')}')

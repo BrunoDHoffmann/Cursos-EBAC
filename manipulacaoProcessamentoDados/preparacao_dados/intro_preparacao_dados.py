@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('D:/GitHub/Cursos-EBAC/tratamentoDados/clientes-v2.csv')
+df = pd.read_csv('D:/GitHub/Cursos-EBAC/manipulacaoProcessamentoDados/clientes-v2.csv')
 
 print(df.head().to_string())
 print(df.tail().to_string())

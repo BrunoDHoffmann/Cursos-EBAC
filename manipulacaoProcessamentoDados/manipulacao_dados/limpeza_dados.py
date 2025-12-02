@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('C:/Users/Bruno/PycharmProjects/PythonProject/tratamentoDados/clientes.csv')
+df = pd.read_csv('C:/Users/Bruno/PycharmProjects/PythonProject/manipulacaoProcessamentoDados/clientes.csv')
 
 #Seta DataFrame displayWidth para None (sem limite)
 pd.set_option('display.width', None)
@@ -58,4 +58,4 @@ df['idade'] = df['idade_corrigida']
 df.drop(['data_corrigida', 'idade_corrigida'], axis=1, inplace=True)
 print(f'Dados finais: \n{df}')
 
-df.to_csv('C:/Users/Bruno/PycharmProjects/PythonProject/tratamentoDados/clientes_limpos.csv', index=False)
+df.to_csv('C:/Users/Bruno/PycharmProjects/PythonProject/manipulacaoProcessamentoDados/clientes_limpos.csv', index=False)

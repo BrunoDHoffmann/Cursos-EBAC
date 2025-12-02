@@ -4,7 +4,7 @@ from sklearn.preprocessing import RobustScaler, MinMaxScaler, StandardScaler
 pd.set_option('display.width', None)
 pd.set_option('display.max_colwidth', None)
 
-df = pd.read_csv('D:/GitHub/CURSOS-EBAC/tratamentoDados/preparacao_dados/clientes-v2-tratados.csv')
+df = pd.read_csv('D:/GitHub/CURSOS-EBAC/manipulacaoProcessamentoDados/preparacao_dados/clientes-v2-tratados.csv')
 
 print(df.head())
 

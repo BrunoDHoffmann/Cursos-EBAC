@@ -3,7 +3,7 @@ from scipy import stats
 
 pd.set_option('display.width', None)
 
-df = pd.read_csv('C:/Users/Bruno/PycharmProjects/PythonProject/tratamentoDados/clientes_limpos.csv')
+df = pd.read_csv('C:/Users/Bruno/PycharmProjects/PythonProject/manipulacaoProcessamentoDados/clientes_limpos.csv')
 
 df_filtro_basico = df[df['idade'] > 100]
 
@@ -43,4 +43,4 @@ print(f'Dados com enderecos invalidados: {(df['endereco'] == 'Endereco invalido'
 df['nome'] = df['nome'].apply(lambda x: 'Nome invalido' if isinstance(x, str) and len(x) > 50 else x)
 print(f'Dados com nomes invalidados: {(df['nome'] == 'Nome invalido').sum()}')
 
-df.to_csv('C:/Users/Bruno/PycharmProjects/PythonProject/tratamentoDados/clientes_remove_outliers.csv', index=False)
+df.to_csv('C:/Users/Bruno/PycharmProjects/PythonProject/manipulacaoProcessamentoDados/clientes_remove_outliers.csv', index=False)
