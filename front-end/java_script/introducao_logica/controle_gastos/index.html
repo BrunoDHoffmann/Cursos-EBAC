@@ -10,7 +10,7 @@
 </head>
 <body>
     <main>
-        <form action="submit">
+        <form>
             <h2>Controle de Gastos</h2>
             <label for="gasto"></label>
             <input type="number" name="gasto" id="valor" placeholder="Digite o valor do gasto">
@@ -20,11 +20,14 @@
                 <option value="Lazer">Lazer</option>
                 <option value="Outros">Outros</option>
             </select>
-            <button type="button">Adicionar</button>
+            <button type="button" onclick="adicionarGasto()">Adicionar</button>
         </form>
         <div id="relatorio">
-            <p class="item">Alimentação: R$0,00</p>
-            <p id="total">Total: R$0,00</p>
+            <p id="Alimentação" class="item">Alimentação: R$0,00</p>
+            <p id="Transporte" class="item">Transporte: R$0,00</p>
+            <p id="Lazer" class="item">Lazer: R$0,00</p>
+            <p id="Outros" class="item">Outros: R$0,00</p>
+            <p id="Total">Total: R$0,00</p>
         </div>
     </main>
 </body>
