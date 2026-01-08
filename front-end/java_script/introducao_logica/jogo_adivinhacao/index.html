@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Advinhação</title>
+</head>
+<body>
+    <h1>Jogo de Advinhação</h1>
+    <p>O jogo irá gerar um número aleatório entre 1 e 100, e o jogador terá que adivinhar qual é esse número. O jogo dará dicas ao jogador, dizendo se o número chutado é maior ou menor que o número secreto. O jogo termina quando o jogador acertar o número ou quando ele atingir um número máximo de tentativas.</p>
+    <form>
+        <input type="number" name="palpite" id="palpite" placeholder="Digite seu palpite" required>
+        <button type="button" onclick="validaResultado()">Chutar</button>
+        <p id="dica" style="display: none;"></p>
+        <p id="tentativas" style="display: none;"></p>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
