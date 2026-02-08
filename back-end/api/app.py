@@ -1,38 +1,45 @@
 from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from typing import Optional
 
 
 app = FastAPI()
 tarefas = []
     
+class Tarefa(BaseModel):
+    nome : str
+    descricao : str
+    concluida : Optional[bool] = False
+    
 @app.post("/adicionar")
-def adicionar_tarefa(nome: str, descricao: str):
-    if any(x['nome'] == nome for x in tarefas):
+async def adicionar_tarefa(tarefa: Tarefa):
+    if any(t.nome == tarefa.nome for t in tarefas):
         raise HTTPException(status_code=400, detail="Essa tarefa já existe.")
     else:
-        tarefas.append({'nome': nome, 'descricao': descricao, 'concluida': False})
-        return {'messege': 'Tarefa adicionada com sucesso.'}
+        tarefas.append(tarefa)
+        return {'message': 'Tarefa adicionada com sucesso.'}
     
 @app.get("/tarefas")
-def ler_tarefas():
+async def ler_tarefas():
     if len(tarefas) == 0:
-       return {'messege': 'Não existe nenhuma tarefa.'}
+       return {'message': 'Não existe nenhuma tarefa.'}
     else:
         return {'Tarefas': tarefas} 
 
 @app.put("/atualizar_status/{nome}")
-def atualizar_status(nome: str):
-    tarefa = next((t for t in tarefas if t["nome"] == nome), None)
-    if tarefa == None:
+async def atualizar_status(nome: str):
+    tarefa = next((t for t in tarefas if t.nome == nome), None)
+    if tarefa is None:
         raise HTTPException(status_code=404, detail='Tarefa não encontrada.')
     else:
-        tarefa.update({'concluida': True})
-        return {'messege': 'Tarefa concluida.'}
+        tarefa.concluida = True
+        return {'message': 'Tarefa concluida.'}
     
 @app.delete("/deletar/{nome}")
-def deletar_tarefa(nome: str):
-    tarefa = next((t for t in tarefas if t["nome"] == nome), None)
-    if tarefa == None:
+async def deletar_tarefa(nome: str):
+    tarefa = next((t for t in tarefas if t.nome == nome), None)
+    if tarefa is None:
         raise HTTPException(status_code=404, detail='Tarefa não encontrada.')
     else:
         tarefas.remove(tarefa)
-        return {'messege': 'Tarefa deletada com sucesso.'}
+        return {'message': 'Tarefa deletada com sucesso.'}
