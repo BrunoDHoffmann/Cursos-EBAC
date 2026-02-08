@@ -1,6 +1,13 @@
 from fastapi import APIRouter, Depends
+import sys
+import os
+
+sys.path.append(
+    os.path.abspath(os.path.join(os.path.dirname(__file__), "../"))
+)
+
 from models.models import Usuario 
-from dependencies.dependencies import pegar_sessao
+from routes.dependencies.dependencies import pegar_sessao
 
 auth_router = APIRouter(prefix="/auth", tags=["auth"])
 
