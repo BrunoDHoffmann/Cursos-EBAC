@@ -16,7 +16,7 @@ order_router = APIRouter(prefix="/orders", tags=["orders"])
 async def home():
     return {"messege": "Voce acessou a rota padrao de pedidos."}
 
-@order_router.post("/order")
+@order_router.post("/create_order")
 async def new_order(order_schema : OrderSchema, session : Session = Depends(pegar_sessao)):
     new_order = Order(id= None, usuario = order_schema.usuario, status = None)
     session.add(new_order)
