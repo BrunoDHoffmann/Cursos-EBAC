@@ -1,0 +1,18 @@
+[project]
+name = "api-livros"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "bergsonall",email = "bruninhodubal@hotmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi[standard] (>=0.128.4,<0.129.0)",
+    "pydantic (>=2.12.5,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
