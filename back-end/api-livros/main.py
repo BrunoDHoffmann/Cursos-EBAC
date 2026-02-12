@@ -27,11 +27,29 @@ def autenticar_usuario(credentials: HTTPBasicCredentials = Depends(security)):
 
 
 @app.get("/livros")
-def ler_livros(credentials : HTTPBasicCredentials = Depends(autenticar_usuario)):
+def ler_livros(page: int = 1, limit: int = 10, credentials : HTTPBasicCredentials = Depends(autenticar_usuario)):
+    
+    if page < 1 or limit < 1:
+        raise HTTPException(status_code=400, detail='page or limit invalid value.') 
+    
     if not lib:
        return {'messege': 'Não existe nenhum livro.'}
-    else:
-        return {'livros': lib} 
+   
+    start = (page - 1) * limit
+    end = start + limit
+    
+    livros_page = [
+        {'id_livro': id_livro, 'nome_livro' : livro_data['titulo'], 'autor_livro': livro_data['autor'], 'ano_livro': livro_data['ano']}
+        for id_livro, livro_data in list(lib.items())[start:end]
+    ]
+    
+    return {
+        'Page': page,
+        'Limit': limit,
+        'Total': len(livros_page),
+        'Livros': livros_page
+    }
+
 
     
 @app.post("/adicionar")
